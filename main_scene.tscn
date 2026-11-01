@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dqondvxsvewiw"]
+
+[ext_resource type="ArrayMesh" uid="uid://ds1ynsuucevsj" path="res://bunny.obj" id="1_2c62f"]
+[ext_resource type="Script" uid="uid://c76wro8eefcbr" path="res://camera_toggle.gd" id="1_gyfs4"]
+[ext_resource type="Shader" uid="uid://bfbbahhd6jcom" path="res://rotation_and_lighting.gdshader" id="2_gyfs4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pii4p"]
+render_priority = 5
+shader = ExtResource("2_gyfs4")
+shader_parameter/color_a = Color(0.32941177, 0.5882353, 0.68235296, 1)
+shader_parameter/rotation_speed = 1.0000005225000006
+shader_parameter/shininess = 60.00000285
+shader_parameter/k_d = 1.0
+shader_parameter/k_s = 0.750000035625
+
+[node name="Node3D" type="Node3D" unique_id=1032841617]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1283482186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 309.886)
+sky_mode = 1
+
+[node name="Cameras" type="Node3D" parent="." unique_id=221840020]
+script = ExtResource("1_gyfs4")
+
+[node name="Orthographic" type="Camera3D" parent="Cameras" unique_id=1607788443]
+transform = Transform3D(1, 0, 0, 0, 0.92718387, 0.3746066, 0, -0.3746066, 0.92718387, 0, 100, 250)
+projection = 1
+fov = 32.0
+size = 150.0
+near = 1.0
+
+[node name="Perspective" type="Camera3D" parent="Cameras" unique_id=1199837532]
+transform = Transform3D(1, 0, 0, 0, 0.92718387, 0.3746066, 0, -0.3746066, 0.92718387, 0, 100, 250)
+fov = 32.0
+size = 150.0
+near = 1.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1479913349]
+mesh = ExtResource("1_2c62f")
+surface_material_override/0 = SubResource("ShaderMaterial_pii4p")
