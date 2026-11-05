@@ -3,6 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ds1ynsuucevsj" path="res://bunny.obj" id="1_2c62f"]
 [ext_resource type="Script" uid="uid://c76wro8eefcbr" path="res://camera_toggle.gd" id="1_gyfs4"]
 [ext_resource type="Shader" uid="uid://bfbbahhd6jcom" path="res://rotation_and_lighting.gdshader" id="2_gyfs4"]
+[ext_resource type="Script" uid="uid://chh7w6a1527pi" path="res://proc_noise.gd" id="4_d5x1h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pii4p"]
 render_priority = 5
@@ -12,6 +13,7 @@ shader_parameter/rotation_speed = 1.0000005225000006
 shader_parameter/shininess = 60.00000285
 shader_parameter/k_d = 1.0
 shader_parameter/k_s = 0.750000035625
+shader_parameter/m = 60.5290028276275
 
 [node name="Node3D" type="Node3D" unique_id=1032841617]
 
@@ -38,3 +40,4 @@ near = 1.0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1479913349]
 mesh = ExtResource("1_2c62f")
 surface_material_override/0 = SubResource("ShaderMaterial_pii4p")
+script = ExtResource("4_d5x1h")
